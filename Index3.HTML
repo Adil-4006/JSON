@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>JavaScript Prosime</h2>
+    <p id="demo"></p>
+    <script>
+        function myDisplayer(some) {
+            document.getElementById("demo").innerHTML = some;
+        }
+        function sum(a,b) {
+            var sum = a+b;
+            myDisplayer(sum);
+        }
+        let myProsime = new Promise(function(myResolve, myReject){
+            //producing code may take some time
+            let x = 5; // some code (try to change x to 5)
+
+            if (x==5) {
+                myResolve ("OK"); //When Successful
+            } else {
+                myReject("Error");// When error 
+            }
+        });
+        // consuming code - must wait for fullfilled promise
+        myProsime.then(
+            function(value) {sum(5,5);}, // code is successfull
+            function(error) {sum(error);} // Code is error
+        );
+    </script>
+</body>
+</html>
